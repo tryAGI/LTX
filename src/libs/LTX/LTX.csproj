@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Nuget">
+    <Description>C# SDK for the LTX video generation API.</Description>
+    <PackageTags>api;client;sdk;dotnet;ltx;lightricks;ai;video-generation;text-to-video;image-to-video</PackageTags>
+  </PropertyGroup>
+
+</Project>

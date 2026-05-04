@@ -1,0 +1,252 @@
+openapi: 3.0.3
+info:
+  title: LTX Video API
+  version: 1.0.0
+  description: API for LTX text-to-video, image-to-video, audio-to-video, retake, extend, and media upload operations.
+servers:
+  - url: https://api.ltx.video/v1
+security:
+  - BearerAuth: []
+paths:
+  /text-to-video:
+    post:
+      operationId: createTextToVideo
+      summary: Generate a video from a text prompt.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextToVideoRequest'
+      responses:
+        '200':
+          description: Generated MP4 video.
+          content:
+            video/mp4:
+              schema:
+                type: string
+                format: binary
+  /image-to-video:
+    post:
+      operationId: createImageToVideo
+      summary: Animate an image into a video.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageToVideoRequest'
+      responses:
+        '200':
+          description: Generated MP4 video.
+          content:
+            video/mp4:
+              schema:
+                type: string
+                format: binary
+  /audio-to-video:
+    post:
+      operationId: createAudioToVideo
+      summary: Generate a video synchronized to an audio track.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AudioToVideoRequest'
+      responses:
+        '200':
+          description: Generated MP4 video.
+          content:
+            video/mp4:
+              schema:
+                type: string
+                format: binary
+  /retake:
+    post:
+      operationId: retakeVideoSection
+      summary: Regenerate a selected section of an existing video.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RetakeRequest'
+      responses:
+        '200':
+          description: Generated MP4 video.
+          content:
+            video/mp4:
+              schema:
+                type: string
+                format: binary
+  /extend:
+    post:
+      operationId: extendVideo
+      summary: Extend an existing video from the beginning or end.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExtendRequest'
+      responses:
+        '200':
+          description: Generated MP4 video.
+          content:
+            video/mp4:
+              schema:
+                type: string
+                format: binary
+  /upload:
+    post:
+      operationId: uploadMedia
+      summary: Upload media and receive an LTX storage URI for generation requests.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Upload metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadResponse'
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    TextToVideoRequest:
+      type: object
+      required:
+        - prompt
+        - model
+        - duration
+        - resolution
+      additionalProperties: true
+      properties:
+        prompt:
+          type: string
+          maxLength: 5000
+        model:
+          $ref: '#/components/schemas/LtxModel'
+        duration:
+          type: integer
+          format: int32
+        resolution:
+          type: string
+        fps:
+          type: integer
+          format: int32
+        generate_audio:
+          type: boolean
+          default: true
+        seed:
+          type: integer
+          format: int64
+    ImageToVideoRequest:
+      allOf:
+        - $ref: '#/components/schemas/TextToVideoRequest'
+        - type: object
+          required:
+            - image_uri
+          properties:
+            image_uri:
+              type: string
+              description: HTTPS, data URI, or LTX storage URI for the reference image.
+    AudioToVideoRequest:
+      allOf:
+        - $ref: '#/components/schemas/TextToVideoRequest'
+        - type: object
+          required:
+            - audio_uri
+          properties:
+            audio_uri:
+              type: string
+              description: HTTPS, data URI, or LTX storage URI for the audio track.
+            image_uri:
+              type: string
+              description: Optional reference image URI.
+    RetakeRequest:
+      type: object
+      required:
+        - video_uri
+        - prompt
+        - model
+        - start_time
+        - end_time
+      additionalProperties: true
+      properties:
+        video_uri:
+          type: string
+        prompt:
+          type: string
+        model:
+          $ref: '#/components/schemas/LtxModel'
+        start_time:
+          type: number
+          format: float
+        end_time:
+          type: number
+          format: float
+        mode:
+          type: string
+          enum:
+            - video
+            - audio
+            - both
+    ExtendRequest:
+      type: object
+      required:
+        - video_uri
+        - model
+        - duration
+        - direction
+      additionalProperties: true
+      properties:
+        video_uri:
+          type: string
+        prompt:
+          type: string
+        model:
+          $ref: '#/components/schemas/LtxModel'
+        duration:
+          type: integer
+          format: int32
+        direction:
+          type: string
+          enum:
+            - start
+            - end
+        resolution:
+          type: string
+        fps:
+          type: integer
+          format: int32
+    UploadResponse:
+      type: object
+      additionalProperties: true
+      properties:
+        storage_uri:
+          type: string
+        expires_at:
+          type: string
+          format: date-time
+    LtxModel:
+      type: string
+      enum:
+        - ltx-2-fast
+        - ltx-2-pro
+        - ltx-2-3-fast
+        - ltx-2-3-pro
