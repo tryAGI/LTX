@@ -19,6 +19,30 @@ namespace LTX
         /// <summary>
         /// Extend an existing video from the beginning or end.
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LTX.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::System.IO.Stream> ExtendVideoAsStreamAsync(
+
+            global::LTX.ExtendRequest request,
+            global::LTX.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Extend an existing video from the beginning or end.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LTX.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::LTX.AutoSDKHttpResponse<byte[]>> ExtendVideoAsResponseAsync(
+
+            global::LTX.ExtendRequest request,
+            global::LTX.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Extend an existing video from the beginning or end.
+        /// </summary>
         /// <param name="videoUri"></param>
         /// <param name="prompt"></param>
         /// <param name="model"></param>
