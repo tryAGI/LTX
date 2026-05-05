@@ -19,6 +19,30 @@ namespace LTX
         /// <summary>
         /// Generate a video from a text prompt.
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LTX.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::System.IO.Stream> CreateTextToVideoAsStreamAsync(
+
+            global::LTX.TextToVideoRequest request,
+            global::LTX.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Generate a video from a text prompt.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LTX.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::LTX.AutoSDKHttpResponse<byte[]>> CreateTextToVideoAsResponseAsync(
+
+            global::LTX.TextToVideoRequest request,
+            global::LTX.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Generate a video from a text prompt.
+        /// </summary>
         /// <param name="prompt"></param>
         /// <param name="model"></param>
         /// <param name="duration"></param>
