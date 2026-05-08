@@ -29,6 +29,19 @@ namespace LTX
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickText(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::LTX.TextToVideoRequest? value)
+        {
+            value = Text;
+            return IsText;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::LTX.ImageToVideoRequestVariant2? ImageToVideoRequestVariant2 { get; init; }
 #else
@@ -42,6 +55,19 @@ namespace LTX
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ImageToVideoRequestVariant2))]
 #endif
         public bool IsImageToVideoRequestVariant2 => ImageToVideoRequestVariant2 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickImageToVideoRequestVariant2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::LTX.ImageToVideoRequestVariant2? value)
+        {
+            value = ImageToVideoRequestVariant2;
+            return IsImageToVideoRequestVariant2;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -118,8 +144,8 @@ namespace LTX
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::LTX.TextToVideoRequest?, TResult>? text = null,
-            global::System.Func<global::LTX.ImageToVideoRequestVariant2?, TResult>? imageToVideoRequestVariant2 = null,
+            global::System.Func<global::LTX.TextToVideoRequest, TResult>? text = null,
+            global::System.Func<global::LTX.ImageToVideoRequestVariant2, TResult>? imageToVideoRequestVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -143,8 +169,32 @@ namespace LTX
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::LTX.TextToVideoRequest?>? text = null,
-            global::System.Action<global::LTX.ImageToVideoRequestVariant2?>? imageToVideoRequestVariant2 = null,
+            global::System.Action<global::LTX.TextToVideoRequest>? text = null,
+
+            global::System.Action<global::LTX.ImageToVideoRequestVariant2>? imageToVideoRequestVariant2 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsText)
+            {
+                text?.Invoke(Text!);
+            }
+            else if (IsImageToVideoRequestVariant2)
+            {
+                imageToVideoRequestVariant2?.Invoke(ImageToVideoRequestVariant2!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::LTX.TextToVideoRequest>? text = null,
+            global::System.Action<global::LTX.ImageToVideoRequestVariant2>? imageToVideoRequestVariant2 = null,
             bool validate = true)
         {
             if (validate)

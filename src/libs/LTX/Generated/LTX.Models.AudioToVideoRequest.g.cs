@@ -29,6 +29,19 @@ namespace LTX
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickText(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::LTX.TextToVideoRequest? value)
+        {
+            value = Text;
+            return IsText;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::LTX.AudioToVideoRequestVariant2? AudioToVideoRequestVariant2 { get; init; }
 #else
@@ -42,6 +55,19 @@ namespace LTX
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AudioToVideoRequestVariant2))]
 #endif
         public bool IsAudioToVideoRequestVariant2 => AudioToVideoRequestVariant2 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickAudioToVideoRequestVariant2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::LTX.AudioToVideoRequestVariant2? value)
+        {
+            value = AudioToVideoRequestVariant2;
+            return IsAudioToVideoRequestVariant2;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -118,8 +144,8 @@ namespace LTX
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::LTX.TextToVideoRequest?, TResult>? text = null,
-            global::System.Func<global::LTX.AudioToVideoRequestVariant2?, TResult>? audioToVideoRequestVariant2 = null,
+            global::System.Func<global::LTX.TextToVideoRequest, TResult>? text = null,
+            global::System.Func<global::LTX.AudioToVideoRequestVariant2, TResult>? audioToVideoRequestVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -143,8 +169,32 @@ namespace LTX
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::LTX.TextToVideoRequest?>? text = null,
-            global::System.Action<global::LTX.AudioToVideoRequestVariant2?>? audioToVideoRequestVariant2 = null,
+            global::System.Action<global::LTX.TextToVideoRequest>? text = null,
+
+            global::System.Action<global::LTX.AudioToVideoRequestVariant2>? audioToVideoRequestVariant2 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsText)
+            {
+                text?.Invoke(Text!);
+            }
+            else if (IsAudioToVideoRequestVariant2)
+            {
+                audioToVideoRequestVariant2?.Invoke(AudioToVideoRequestVariant2!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::LTX.TextToVideoRequest>? text = null,
+            global::System.Action<global::LTX.AudioToVideoRequestVariant2>? audioToVideoRequestVariant2 = null,
             bool validate = true)
         {
             if (validate)
