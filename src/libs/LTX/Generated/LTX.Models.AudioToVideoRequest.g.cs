@@ -89,6 +89,11 @@ namespace LTX
         /// <summary>
         /// 
         /// </summary>
+        public static AudioToVideoRequest FromText(global::LTX.TextToVideoRequest? value) => new AudioToVideoRequest(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator AudioToVideoRequest(global::LTX.AudioToVideoRequestVariant2 value) => new AudioToVideoRequest((global::LTX.AudioToVideoRequestVariant2?)value);
 
         /// <summary>
@@ -103,6 +108,11 @@ namespace LTX
         {
             AudioToVideoRequestVariant2 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static AudioToVideoRequest FromAudioToVideoRequestVariant2(global::LTX.AudioToVideoRequestVariant2? value) => new AudioToVideoRequest(value);
 
         /// <summary>
         /// 
