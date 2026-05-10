@@ -42,5 +42,6 @@ namespace LTX
         public ImageToVideoRequestVariant2()
         {
         }
+
     }
 }

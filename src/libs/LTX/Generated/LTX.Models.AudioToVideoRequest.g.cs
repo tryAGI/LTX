@@ -42,6 +42,13 @@ namespace LTX
         /// <summary>
         /// 
         /// </summary>
+        public global::LTX.TextToVideoRequest PickText() => IsText
+            ? Text!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::LTX.AudioToVideoRequestVariant2? AudioToVideoRequestVariant2 { get; init; }
 #else
@@ -68,6 +75,13 @@ namespace LTX
             value = AudioToVideoRequestVariant2;
             return IsAudioToVideoRequestVariant2;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::LTX.AudioToVideoRequestVariant2 PickAudioToVideoRequestVariant2() => IsAudioToVideoRequestVariant2
+            ? AudioToVideoRequestVariant2!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'AudioToVideoRequestVariant2' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
