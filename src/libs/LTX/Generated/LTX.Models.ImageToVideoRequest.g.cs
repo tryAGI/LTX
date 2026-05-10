@@ -89,6 +89,11 @@ namespace LTX
         /// <summary>
         /// 
         /// </summary>
+        public static ImageToVideoRequest FromText(global::LTX.TextToVideoRequest? value) => new ImageToVideoRequest(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ImageToVideoRequest(global::LTX.ImageToVideoRequestVariant2 value) => new ImageToVideoRequest((global::LTX.ImageToVideoRequestVariant2?)value);
 
         /// <summary>
@@ -103,6 +108,11 @@ namespace LTX
         {
             ImageToVideoRequestVariant2 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ImageToVideoRequest FromImageToVideoRequestVariant2(global::LTX.ImageToVideoRequestVariant2? value) => new ImageToVideoRequest(value);
 
         /// <summary>
         /// 
