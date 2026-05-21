@@ -83,6 +83,7 @@ namespace LTX.JsonConverters
             {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LTX.TextToVideoRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LTX.TextToVideoRequest> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LTX.TextToVideoRequest).Name}");
                     text = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -93,9 +94,13 @@ namespace LTX.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (text == null && audioToVideoRequestVariant2 == null)
+            {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LTX.AudioToVideoRequestVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LTX.AudioToVideoRequestVariant2> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LTX.AudioToVideoRequestVariant2).Name}");
                     audioToVideoRequestVariant2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
