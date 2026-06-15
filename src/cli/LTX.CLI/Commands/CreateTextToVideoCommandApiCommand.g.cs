@@ -106,9 +106,9 @@ internal static partial class CreateTextToVideoCommandApiCommand
                         var model = parseResult.GetRequiredValue(Model);
                         var duration = parseResult.GetRequiredValue(Duration);
                         var resolution = parseResult.GetRequiredValue(Resolution);
-                        var fps = CliRuntime.WasSpecified(parseResult, Fps) ? parseResult.GetValue(Fps) : __requestBase is not null ? __requestBase.Fps : default;
-                        var generateAudio = CliRuntime.WasSpecified(parseResult, GenerateAudio) ? parseResult.GetValue(GenerateAudio) : __requestBase is not null ? __requestBase.GenerateAudio : default;
-                        var seed = CliRuntime.WasSpecified(parseResult, Seed) ? parseResult.GetValue(Seed) : __requestBase is not null ? __requestBase.Seed : default;
+                        var fps = CliRuntime.WasSpecified(parseResult, Fps) ? parseResult.GetValue(Fps) : (__requestBase is { } __FpsBaseValue ? __FpsBaseValue.Fps : default);
+                        var generateAudio = CliRuntime.WasSpecified(parseResult, GenerateAudio) ? parseResult.GetValue(GenerateAudio) : (__requestBase is { } __GenerateAudioBaseValue ? __GenerateAudioBaseValue.GenerateAudio : default);
+                        var seed = CliRuntime.WasSpecified(parseResult, Seed) ? parseResult.GetValue(Seed) : (__requestBase is { } __SeedBaseValue ? __SeedBaseValue.Seed : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 

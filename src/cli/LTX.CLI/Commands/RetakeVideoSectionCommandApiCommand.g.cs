@@ -103,7 +103,7 @@ internal static partial class RetakeVideoSectionCommandApiCommand
                         var model = parseResult.GetRequiredValue(Model);
                         var startTime = parseResult.GetRequiredValue(StartTime);
                         var endTime = parseResult.GetRequiredValue(EndTime);
-                        var mode = CliRuntime.WasSpecified(parseResult, Mode) ? parseResult.GetValue(Mode) : __requestBase is not null ? __requestBase.Mode : default;
+                        var mode = CliRuntime.WasSpecified(parseResult, Mode) ? parseResult.GetValue(Mode) : (__requestBase is { } __ModeBaseValue ? __ModeBaseValue.Mode : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
