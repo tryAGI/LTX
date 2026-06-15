@@ -40,6 +40,13 @@ using LTX;
 using var client = new LtxClient(apiKey);
 ```
 
+### CLI
+
+```bash
+dotnet tool install --global LTX.CLI --prerelease
+ltx api --help
+```
+
 <!-- EXAMPLES:START -->
 ### Text-to-video
 Generate an MP4 video from a text prompt using LTX.
