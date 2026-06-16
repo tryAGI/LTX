@@ -105,12 +105,12 @@ internal static partial class ExtendVideoCommandApiCommand
                             global::LTX.SourceGenerationContext.Default,
                             cancellationToken).ConfigureAwait(false);
                         var videoUri = parseResult.GetRequiredValue(VideoUri);
-                        var prompt = CliRuntime.WasSpecified(parseResult, Prompt) ? parseResult.GetValue(Prompt) : __requestBase is not null ? __requestBase.Prompt : default;
+                        var prompt = CliRuntime.WasSpecified(parseResult, Prompt) ? parseResult.GetValue(Prompt) : (__requestBase is { } __PromptBaseValue ? __PromptBaseValue.Prompt : default);
                         var model = parseResult.GetRequiredValue(Model);
                         var duration = parseResult.GetRequiredValue(Duration);
                         var direction = parseResult.GetRequiredValue(Direction);
-                        var resolution = CliRuntime.WasSpecified(parseResult, Resolution) ? parseResult.GetValue(Resolution) : __requestBase is not null ? __requestBase.Resolution : default;
-                        var fps = CliRuntime.WasSpecified(parseResult, Fps) ? parseResult.GetValue(Fps) : __requestBase is not null ? __requestBase.Fps : default;
+                        var resolution = CliRuntime.WasSpecified(parseResult, Resolution) ? parseResult.GetValue(Resolution) : (__requestBase is { } __ResolutionBaseValue ? __ResolutionBaseValue.Resolution : default);
+                        var fps = CliRuntime.WasSpecified(parseResult, Fps) ? parseResult.GetValue(Fps) : (__requestBase is { } __FpsBaseValue ? __FpsBaseValue.Fps : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
