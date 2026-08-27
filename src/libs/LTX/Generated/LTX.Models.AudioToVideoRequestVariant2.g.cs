@@ -4,7 +4,7 @@
 namespace LTX
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AudioToVideoRequestVariant2
     {

@@ -4,25 +4,25 @@
 namespace LTX
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ExtendRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video_uri")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string VideoUri { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         public string? Prompt { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LTX.JsonConverters.LtxModelJsonConverter))]
@@ -30,14 +30,14 @@ namespace LTX
         public required global::LTX.LtxModel Model { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int Duration { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("direction")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LTX.JsonConverters.ExtendRequestDirectionJsonConverter))]
@@ -45,13 +45,13 @@ namespace LTX
         public required global::LTX.ExtendRequestDirection Direction { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("resolution")]
         public string? Resolution { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fps")]
         public int? Fps { get; set; }

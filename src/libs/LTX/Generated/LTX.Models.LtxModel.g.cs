@@ -4,24 +4,24 @@
 namespace LTX
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum LtxModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ltx23Fast,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ltx23Pro,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ltx2Fast,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ltx2Pro,
     }

@@ -4,18 +4,18 @@
 namespace LTX
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class UploadResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("storage_uri")]
         public string? StorageUri { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expires_at")]
         public global::System.DateTime? ExpiresAt { get; set; }
