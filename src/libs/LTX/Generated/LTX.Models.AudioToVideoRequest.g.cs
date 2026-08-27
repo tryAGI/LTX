@@ -5,12 +5,12 @@
 namespace LTX
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct AudioToVideoRequest : global::System.IEquatable<AudioToVideoRequest>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::LTX.TextToVideoRequest? Text { get; init; }
@@ -19,7 +19,7 @@ namespace LTX
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Text))]
@@ -27,7 +27,7 @@ namespace LTX
         public bool IsText => Text != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickText(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::LTX.TextToVideoRequest PickText() => IsText
             ? Text!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::LTX.AudioToVideoRequestVariant2? AudioToVideoRequestVariant2 { get; init; }
@@ -56,7 +56,7 @@ namespace LTX
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AudioToVideoRequestVariant2))]
@@ -64,7 +64,7 @@ namespace LTX
         public bool IsAudioToVideoRequestVariant2 => AudioToVideoRequestVariant2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickAudioToVideoRequestVariant2(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::LTX.AudioToVideoRequestVariant2 PickAudioToVideoRequestVariant2() => IsAudioToVideoRequestVariant2
             ? AudioToVideoRequestVariant2!
             : throw new global::System.InvalidOperationException($"Expected union variant 'AudioToVideoRequestVariant2' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator AudioToVideoRequest(global::LTX.TextToVideoRequest value) => new AudioToVideoRequest((global::LTX.TextToVideoRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::LTX.TextToVideoRequest?(AudioToVideoRequest @this) => @this.Text;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AudioToVideoRequest(global::LTX.TextToVideoRequest? value)
         {
@@ -101,22 +101,22 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static AudioToVideoRequest FromText(global::LTX.TextToVideoRequest? value) => new AudioToVideoRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator AudioToVideoRequest(global::LTX.AudioToVideoRequestVariant2 value) => new AudioToVideoRequest((global::LTX.AudioToVideoRequestVariant2?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::LTX.AudioToVideoRequestVariant2?(AudioToVideoRequest @this) => @this.AudioToVideoRequestVariant2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AudioToVideoRequest(global::LTX.AudioToVideoRequestVariant2? value)
         {
@@ -124,12 +124,12 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static AudioToVideoRequest FromAudioToVideoRequestVariant2(global::LTX.AudioToVideoRequestVariant2? value) => new AudioToVideoRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AudioToVideoRequest(
             global::LTX.TextToVideoRequest? text,
@@ -141,23 +141,23 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             AudioToVideoRequestVariant2 as object ??
-            Text as object 
+            Text as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Text?.ToString() ??
-            AudioToVideoRequestVariant2?.ToString() 
+            AudioToVideoRequestVariant2?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -165,7 +165,7 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::LTX.TextToVideoRequest, TResult>? text = null,
@@ -190,7 +190,7 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::LTX.TextToVideoRequest>? text = null,
@@ -214,7 +214,7 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::LTX.TextToVideoRequest>? text = null,
@@ -237,7 +237,7 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -258,18 +258,18 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(AudioToVideoRequest other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::LTX.TextToVideoRequest?>.Default.Equals(Text, other.Text) &&
-                global::System.Collections.Generic.EqualityComparer<global::LTX.AudioToVideoRequestVariant2?>.Default.Equals(AudioToVideoRequestVariant2, other.AudioToVideoRequestVariant2) 
+                global::System.Collections.Generic.EqualityComparer<global::LTX.AudioToVideoRequestVariant2?>.Default.Equals(AudioToVideoRequestVariant2, other.AudioToVideoRequestVariant2)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(AudioToVideoRequest obj1, AudioToVideoRequest obj2)
         {
@@ -277,7 +277,7 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(AudioToVideoRequest obj1, AudioToVideoRequest obj2)
         {
@@ -285,7 +285,7 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

@@ -20,7 +20,7 @@ namespace LTX.JsonConverters
                     {
                         return global::LTX.ExtendRequestDirectionExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

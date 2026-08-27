@@ -4,16 +4,16 @@
 namespace LTX
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ExtendRequestDirection
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         End,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Start,
     }

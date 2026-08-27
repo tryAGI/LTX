@@ -4,20 +4,20 @@
 namespace LTX
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum RetakeRequestMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Audio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Both,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Video,
     }

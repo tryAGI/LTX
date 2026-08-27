@@ -5,12 +5,12 @@
 namespace LTX
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ImageToVideoRequest : global::System.IEquatable<ImageToVideoRequest>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::LTX.TextToVideoRequest? Text { get; init; }
@@ -19,7 +19,7 @@ namespace LTX
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Text))]
@@ -27,7 +27,7 @@ namespace LTX
         public bool IsText => Text != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickText(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::LTX.TextToVideoRequest PickText() => IsText
             ? Text!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::LTX.ImageToVideoRequestVariant2? ImageToVideoRequestVariant2 { get; init; }
@@ -56,7 +56,7 @@ namespace LTX
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ImageToVideoRequestVariant2))]
@@ -64,7 +64,7 @@ namespace LTX
         public bool IsImageToVideoRequestVariant2 => ImageToVideoRequestVariant2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickImageToVideoRequestVariant2(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::LTX.ImageToVideoRequestVariant2 PickImageToVideoRequestVariant2() => IsImageToVideoRequestVariant2
             ? ImageToVideoRequestVariant2!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ImageToVideoRequestVariant2' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ImageToVideoRequest(global::LTX.TextToVideoRequest value) => new ImageToVideoRequest((global::LTX.TextToVideoRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::LTX.TextToVideoRequest?(ImageToVideoRequest @this) => @this.Text;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageToVideoRequest(global::LTX.TextToVideoRequest? value)
         {
@@ -101,22 +101,22 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ImageToVideoRequest FromText(global::LTX.TextToVideoRequest? value) => new ImageToVideoRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ImageToVideoRequest(global::LTX.ImageToVideoRequestVariant2 value) => new ImageToVideoRequest((global::LTX.ImageToVideoRequestVariant2?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::LTX.ImageToVideoRequestVariant2?(ImageToVideoRequest @this) => @this.ImageToVideoRequestVariant2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageToVideoRequest(global::LTX.ImageToVideoRequestVariant2? value)
         {
@@ -124,12 +124,12 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ImageToVideoRequest FromImageToVideoRequestVariant2(global::LTX.ImageToVideoRequestVariant2? value) => new ImageToVideoRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImageToVideoRequest(
             global::LTX.TextToVideoRequest? text,
@@ -141,23 +141,23 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             ImageToVideoRequestVariant2 as object ??
-            Text as object 
+            Text as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Text?.ToString() ??
-            ImageToVideoRequestVariant2?.ToString() 
+            ImageToVideoRequestVariant2?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -165,7 +165,7 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::LTX.TextToVideoRequest, TResult>? text = null,
@@ -190,7 +190,7 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::LTX.TextToVideoRequest>? text = null,
@@ -214,7 +214,7 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::LTX.TextToVideoRequest>? text = null,
@@ -237,7 +237,7 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -258,18 +258,18 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ImageToVideoRequest other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::LTX.TextToVideoRequest?>.Default.Equals(Text, other.Text) &&
-                global::System.Collections.Generic.EqualityComparer<global::LTX.ImageToVideoRequestVariant2?>.Default.Equals(ImageToVideoRequestVariant2, other.ImageToVideoRequestVariant2) 
+                global::System.Collections.Generic.EqualityComparer<global::LTX.ImageToVideoRequestVariant2?>.Default.Equals(ImageToVideoRequestVariant2, other.ImageToVideoRequestVariant2)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ImageToVideoRequest obj1, ImageToVideoRequest obj2)
         {
@@ -277,7 +277,7 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ImageToVideoRequest obj1, ImageToVideoRequest obj2)
         {
@@ -285,7 +285,7 @@ namespace LTX
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {
