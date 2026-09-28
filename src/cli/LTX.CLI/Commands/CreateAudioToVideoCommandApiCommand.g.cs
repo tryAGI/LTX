@@ -25,6 +25,8 @@ internal static partial class CreateAudioToVideoCommandApiCommand
           Hidden = true,
       };
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"create-audio-to-video", @"Generate a video synchronized to an audio track.");
@@ -65,6 +67,7 @@ internal static partial class CreateAudioToVideoCommandApiCommand
 
                                 await CliRuntime.WriteBinaryAsync(parseResult, response, cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

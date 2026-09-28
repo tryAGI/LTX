@@ -25,6 +25,8 @@ internal static partial class CreateImageToVideoCommandApiCommand
           Hidden = true,
       };
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"create-image-to-video", @"Animate an image into a video.");
@@ -65,6 +67,7 @@ internal static partial class CreateImageToVideoCommandApiCommand
 
                                 await CliRuntime.WriteBinaryAsync(parseResult, response, cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

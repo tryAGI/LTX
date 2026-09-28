@@ -69,6 +69,8 @@ internal static partial class ExtendVideoCommandApiCommand
           Hidden = true,
       };
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"extend-video", @"Extend an existing video from the beginning or end.");
@@ -126,6 +128,7 @@ internal static partial class ExtendVideoCommandApiCommand
 
                                 await CliRuntime.WriteBinaryAsync(parseResult, response, cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

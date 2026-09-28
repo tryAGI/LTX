@@ -41,6 +41,8 @@ internal static partial class UploadMediaCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"upload-media", @"Upload media and receive an LTX storage URI for generation requests.");
@@ -69,6 +71,7 @@ internal static partial class UploadMediaCommandApiCommand
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

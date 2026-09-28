@@ -67,6 +67,8 @@ internal static partial class CreateTextToVideoCommandApiCommand
           Hidden = true,
       };
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"create-text-to-video", @"Generate a video from a text prompt.");
@@ -124,6 +126,7 @@ internal static partial class CreateTextToVideoCommandApiCommand
 
                                 await CliRuntime.WriteBinaryAsync(parseResult, response, cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }
