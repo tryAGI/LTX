@@ -42,8 +42,8 @@ namespace LTX
         /// <summary>
         ///
         /// </summary>
-        public global::LTX.TextToVideoRequest PickText() => IsText
-            ? Text!
+        public global::LTX.TextToVideoRequest PickText() => Text is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace LTX
         /// <summary>
         ///
         /// </summary>
-        public global::LTX.ImageToVideoRequestVariant2 PickImageToVideoRequestVariant2() => IsImageToVideoRequestVariant2
-            ? ImageToVideoRequestVariant2!
+        public global::LTX.ImageToVideoRequestVariant2 PickImageToVideoRequestVariant2() => ImageToVideoRequestVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ImageToVideoRequestVariant2' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,13 +177,13 @@ namespace LTX
                 Validate();
             }
 
-            if (IsText && text != null)
+            if (Text is { } __value0 && text != null)
             {
-                return text(Text!);
+                return text(__value0);
             }
-            else if (IsImageToVideoRequestVariant2 && imageToVideoRequestVariant2 != null)
+            else if (ImageToVideoRequestVariant2 is { } __value1 && imageToVideoRequestVariant2 != null)
             {
-                return imageToVideoRequestVariant2(ImageToVideoRequestVariant2!);
+                return imageToVideoRequestVariant2(__value1);
             }
 
             return default(TResult);
@@ -203,13 +203,13 @@ namespace LTX
                 Validate();
             }
 
-            if (IsText)
+            if (Text is { } __value0)
             {
-                text?.Invoke(Text!);
+                text?.Invoke(__value0);
             }
-            else if (IsImageToVideoRequestVariant2)
+            else if (ImageToVideoRequestVariant2 is { } __value1)
             {
-                imageToVideoRequestVariant2?.Invoke(ImageToVideoRequestVariant2!);
+                imageToVideoRequestVariant2?.Invoke(__value1);
             }
         }
 
@@ -226,13 +226,13 @@ namespace LTX
                 Validate();
             }
 
-            if (IsText)
+            if (Text is { } __value0)
             {
-                text?.Invoke(Text!);
+                text?.Invoke(__value0);
             }
-            else if (IsImageToVideoRequestVariant2)
+            else if (ImageToVideoRequestVariant2 is { } __value1)
             {
-                imageToVideoRequestVariant2?.Invoke(ImageToVideoRequestVariant2!);
+                imageToVideoRequestVariant2?.Invoke(__value1);
             }
         }
 
