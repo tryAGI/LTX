@@ -64,6 +64,8 @@ internal static partial class RetakeVideoSectionCommandApiCommand
           Hidden = true,
       };
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"retake-video-section", @"Regenerate a selected section of an existing video.");
@@ -118,6 +120,7 @@ internal static partial class RetakeVideoSectionCommandApiCommand
 
                                 await CliRuntime.WriteBinaryAsync(parseResult, response, cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }
