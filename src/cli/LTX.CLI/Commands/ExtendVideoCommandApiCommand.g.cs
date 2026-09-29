@@ -71,9 +71,9 @@ internal static partial class ExtendVideoCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"extend-video", @"Extend an existing video from the beginning or end.");
+        var command = new Command(commandName ?? @"extend-video", @"Extend an existing video from the beginning or end.");
                         command.Options.Add(VideoUri);
                         command.Options.Add(Prompt);
                         command.Options.Add(Model);

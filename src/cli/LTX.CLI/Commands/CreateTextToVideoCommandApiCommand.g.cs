@@ -69,9 +69,9 @@ internal static partial class CreateTextToVideoCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"create-text-to-video", @"Generate a video from a text prompt.");
+        var command = new Command(commandName ?? @"create-text-to-video", @"Generate a video from a text prompt.");
                         command.Options.Add(Prompt);
                         command.Options.Add(Model);
                         command.Options.Add(Duration);
