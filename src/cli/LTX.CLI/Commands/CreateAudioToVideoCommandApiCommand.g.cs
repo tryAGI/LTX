@@ -27,9 +27,9 @@ internal static partial class CreateAudioToVideoCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"create-audio-to-video", @"Generate a video synchronized to an audio track.");
+        var command = new Command(commandName ?? @"create-audio-to-video", @"Generate a video synchronized to an audio track.");
 
           command.Options.Add(Input);
           command.Options.Add(RequestJson);

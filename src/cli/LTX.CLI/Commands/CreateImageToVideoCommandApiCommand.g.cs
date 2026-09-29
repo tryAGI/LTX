@@ -27,9 +27,9 @@ internal static partial class CreateImageToVideoCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"create-image-to-video", @"Animate an image into a video.");
+        var command = new Command(commandName ?? @"create-image-to-video", @"Animate an image into a video.");
 
           command.Options.Add(Input);
           command.Options.Add(RequestJson);

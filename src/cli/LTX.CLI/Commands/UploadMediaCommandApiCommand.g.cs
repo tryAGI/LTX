@@ -43,9 +43,9 @@ internal static partial class UploadMediaCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"upload-media", @"Upload media and receive an LTX storage URI for generation requests.");
+        var command = new Command(commandName ?? @"upload-media", @"Upload media and receive an LTX storage URI for generation requests.");
                         command.Options.Add(File);
                         command.Options.Add(Filename);
 

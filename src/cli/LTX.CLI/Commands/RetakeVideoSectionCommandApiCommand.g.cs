@@ -66,9 +66,9 @@ internal static partial class RetakeVideoSectionCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"retake-video-section", @"Regenerate a selected section of an existing video.");
+        var command = new Command(commandName ?? @"retake-video-section", @"Regenerate a selected section of an existing video.");
                         command.Options.Add(VideoUri);
                         command.Options.Add(Prompt);
                         command.Options.Add(Model);
