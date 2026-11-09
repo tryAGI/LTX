@@ -18,7 +18,7 @@ namespace LTX.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::LTX.ExtendRequestDirectionExtensions.ToEnum(stringValue) ?? default;
+                        return global::LTX.ExtendRequestDirectionExtensions.ToEnum(stringValue) ?? throw new global::System.Text.Json.JsonException($"Unknown value '{stringValue}' for global::LTX.ExtendRequestDirection.");
                     }
 
                     break;
